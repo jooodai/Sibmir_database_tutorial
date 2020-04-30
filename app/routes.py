@@ -1,18 +1,13 @@
+# -*- coding: utf-8 -*-
+from flask import render_template
 from app import app
 
 @app.route('/')
 @app.route('/index')
 def index():
     user = {'username':'Tolya'}
-    return '''
-    <html>
-        <head>
-            <title>Home Page - Microblog</title>
-        </head>
-        <body>
-            <h1>Hello, ''' + user['username'] + '''!</h1>
-        </body>
-    </html>'''
+    cars = ['Ford', 'Opel', 'Kia']
+    return render_template('index.html', user=user, cars=cars)
 
 
 
