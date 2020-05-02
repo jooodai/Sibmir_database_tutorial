@@ -32,7 +32,6 @@
 
 
 {% block content %}
-    <h1>Sign In</h1>
     <div class="container">
     <form action="" method="post">
         {{ form.hidden_tag() }}
@@ -40,10 +39,11 @@
             {{ wtf.form_field(form.username) }}<br>
         </p>
         <p>
-
             {{ wtf.form_field(form.password) }}<br>
         </p>
-        <p>{{ wtf.form_field(form.submit) }}</p>
+
+        <p>{{ wtf.form_field(form.submit, class='btn btn-info') }}</p>
+
     </form>
     </div>
 {% endblock %}
