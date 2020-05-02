@@ -1,26 +1,18 @@
-{% extends "index.html" %}
 
-{% block content %}
-    <h1>Sign In</h1>
+
+{% block login %}
     <div class="container">
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
-            {{ wtf.form_field(form.username.label) }}<br>
-            {{ wtf.form_field(form.username(size=32)) }}<br>
-            {% for error in form.username.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
+            {{ wtf.form_field(form.username) }}<br>
         </p>
         <p>
-            {{ wtf.form_field(form.password.label) }}<br>
-            {{ wtf.form_field(form.password(size=32)) }}<br>
-            {% for error in form.password.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
+            {{ wtf.form_field(form.password) }}<br>
         </p>
-        <p>{{ wtf.form_field(form.remember_me()) }} {{ wtf.form_field(form.remember_me.label) }}</p>
-        <p>{{ wtf.form_field(form.submit()) }}</p>
+
+        <p>{{ wtf.form_field(form.submit, class='btn btn-info') }}</p>
+
     </form>
     </div>
 {% endblock %}
