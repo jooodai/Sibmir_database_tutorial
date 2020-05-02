@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "bootstrap/base.html" %}
 
-</body>
-</html>
+{% block title %}
+    {% if title %}
+        {{ title }} - microblog
+    {% else %}
+        microblog
+    {% endif %}
+
+{% endblock %}
