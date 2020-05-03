@@ -28,23 +28,13 @@
         {% endif %}
         {% endwith %}
 
+
 {% endblock %}
 
 
 
 {% block content %}
-    <div class="container">
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ wtf.form_field(form.username) }}<br>
-        </p>
-        <p>
-            {{ wtf.form_field(form.password) }}<br>
-        </p>
-
-        <p>{{ wtf.form_field(form.submit, class='btn btn-info') }}</p>
-
-    </form>
-    </div>
+   <h3>Добро пожаловать!</h3>
+{% block app_content %}{% endblock %}
 {% endblock %}
+
