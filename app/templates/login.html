@@ -5,13 +5,13 @@
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
-            {{ wtf.form_field(form.username) }}<br>
+            {{ wtf.form_field(form.username, placeholder='Логин') }}<br>
         </p>
         <p>
-            {{ wtf.form_field(form.password) }}<br>
+            {{ wtf.form_field(form.password, placeholder='Пароль') }}<br>
         </p>
 
-        <p>{{ wtf.form_field(form.submit, class='btn btn-info') }}</p>
+        <p>{{ wtf.form_field(form.submit, class='btn btn-info' ) }}</p>
 
     </form>
     </div>
