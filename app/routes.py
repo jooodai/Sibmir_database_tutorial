@@ -25,4 +25,6 @@ def upload():
     form =UploadForm()
     if form.validate_on_submit():
         images.save(form.upload_file.data)
+        print(form.upload_file.data)
+        # print(images.path(form.upload_file))
     return render_template('upload.html', form=form)
