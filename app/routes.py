@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import render_template, flash, redirect, url_for
-from app import app
+from app import app, images
 from app.forms import LoginForm, UploadForm
 
 @app.route('/')
@@ -24,5 +24,5 @@ def login():
 def upload():
     form =UploadForm()
     if form.validate_on_submit():
-        print(form.upload_file.data)
+        images.save(form.upload_file.data)
     return render_template('upload.html', form=form)
