@@ -23,4 +23,6 @@ def login():
 @app.route('/upload', methods=['POST', 'GET'])
 def upload():
     form =UploadForm()
+    if form.validate_on_submit():
+        print(form.upload_file.data)
     return render_template('upload.html', form=form)
