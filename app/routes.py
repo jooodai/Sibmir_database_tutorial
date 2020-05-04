@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import render_template, flash, redirect, url_for
 from app import app
-from app.forms import LoginForm
+from app.forms import LoginForm, UploadForm
 
 @app.route('/')
 @app.route('/index')
@@ -19,3 +19,8 @@ def login():
         return redirect(url_for('index'))
     return render_template('login.html', title='Sign In', form=form)
 
+
+@app.route('/upload', methods=['POST', 'GET'])
+def upload():
+    form =UploadForm()
+    return render_template('upload.html', form=form)
