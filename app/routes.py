@@ -31,12 +31,16 @@ def upload():
     return render_template('upload.html', form=form)
 
 
-@app.route('/uploadfiles', methods=['POST', 'GET'])
+@app.route('/uploadfiles', methods=['POST'])
 def uploadfiles():
-    form = UploadForm()
-    if form.validate_on_submit():
-        file = request.files['inputfile']
-        newFile = FileContents(name=form.upload_file.data, data=form.read())
-        db.session.add(newFile)
-        db.session.commit()
-    return 'Saved!'
+    # form = UploadForm()
+    # if form.validate_on_submit():
+    file = request.files['inputfile']
+        # newFile = FileContents(name=form.upload_file.data, data=form.upload_file.data)
+        # db.session.add(newFile)
+        # db.session.commit()
+        # print(form.upload_file.data)
+    newFile = FileContents(name=file.filename, data=file.read())
+    db.session.add(newFile)
+    db.session.commit()
+    return render_template('uploadfiles.html')
