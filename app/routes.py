@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, request
 from app import app, images
 from app.forms import LoginForm, UploadForm
+from app.models import db, FileContents
 
 @app.route('/')
 @app.route('/index')
@@ -28,3 +29,18 @@ def upload():
         print(form.upload_file.data)
         # print(images.path(form.upload_file))
     return render_template('upload.html', form=form)
+
+
+@app.route('/uploadfiles', methods=['POST'])
+def uploadfiles():
+    # form = UploadForm()
+    # if form.validate_on_submit():
+    file = request.files['inputfile']
+        # newFile = FileContents(name=form.upload_file.data, data=form.upload_file.data)
+        # db.session.add(newFile)
+        # db.session.commit()
+        # print(form.upload_file.data)
+    newFile = FileContents(name=file.filename, data=file.read())
+    db.session.add(newFile)
+    db.session.commit()
+    return render_template('uploadfiles.html')
