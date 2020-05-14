@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block app_content %}
+    <h1>Регистрация</h1>
     <div class="container">
         <div class="col-md-4">
     <form action="" method="post">
@@ -8,13 +9,24 @@
         <p>
             {{ wtf.form_field(form.username, placeholder='Логин') }}<br>
         </p>
+
+        <p>
+            {{ wtf.form_field(form.email, placeholder='Эл.почта') }}<br>
+        </p>
+
         <p>
             {{ wtf.form_field(form.password, placeholder='Пароль') }}<br>
         </p>
 
-        <p>{{ wtf.form_field(form.submit, class='btn btn-info' ) }}</p>
+        <p>
+            {{ wtf.form_field(form.password2, placeholder='Пароль') }}<br>
+        </p>
+
+        <p>
+            {{ wtf.form_field(form.submit, class='btn btn-info') }}
+        </p>
     </form>
-        <p>Новый пользователь? <a href="{{ url_for('register') }}">Нажми для регистрации</a></p>
     </div>
-        </div>
+    </div>
+
 {% endblock %}
