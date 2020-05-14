@@ -24,7 +24,8 @@ migrate = Migrate(app, db)
 
 # login manager
 login = LoginManager(app)
-login.login_view = 'login' #
+login.login_view = 'login'
+login.login_message = "Пожалуйста, войдите, чтобы открыть личную страницу"
 # ------------------------------------
 
 from app import routes, models
