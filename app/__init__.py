@@ -4,6 +4,7 @@ from flask_bootstrap import Bootstrap
 from flask_uploads import configure_uploads, IMAGES, UploadSet, ALL
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_login import LoginManager
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -20,6 +21,11 @@ configure_uploads(app, images)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 # ----------------------------------
+
+# login manager
+login = LoginManager(app)
+login.login_view = 'login' #
+# ------------------------------------
 
 from app import routes, models
 
