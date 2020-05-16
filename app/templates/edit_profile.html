@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <div class="container">
+        <div class="col-md-4">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <p>
+            {{ wtf.form_field(form.username) }}<br>
+            </p>
+            <p>
+                 {{ wtf.form_field(form.about_me) }}<br>
+            </p>
+            <p>
+                {{ wtf.form_field(form.submit, class='btn btn-info' ) }}
+            </p>
+        </form>
+        </div>
+    </div>
+{% endblock %}
